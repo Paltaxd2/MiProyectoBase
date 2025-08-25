@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -21,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         val edUsername:EditText = findViewById(R.id.ed_username)
         val edPassword:EditText = findViewById(R.id.ed_password)
         val btnLogin:Button = findViewById(R.id.btn_login)
-        val txMensaje:TextView = findViewById(R.id.tx_mensaje)
 
         var defaultUsr = "ch.munozs@profesor.duoc.cl"
         var defaultPasswd = "admin123"
@@ -36,7 +36,8 @@ class MainActivity : AppCompatActivity() {
                 startActivity(nuevaVentana)
 
             }else{
-                txMensaje.text = "Error! Usario/Password Incorrecto"
+                val toast = Toast.makeText(this, "Usuario o Contraseña Incorrectos", Toast.LENGTH_SHORT)
+                toast.show()
             }
         }
 

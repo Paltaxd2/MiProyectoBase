@@ -27,8 +27,8 @@ class MainActivity3 : AppCompatActivity() {
         var fecha = "01/01/01"
 
         btnRegistro.setOnClickListener{
-            if (edNombre.text.toString() != "Rafael" &&
-                edTelefono.text.toString() != "12341234" &&
+            if (edNombre.text.toString() != "Rafael" ||
+                edTelefono.text.toString() != "12341234" ||
                 edFechaNac.text.toString() != "01/01/01"){
 
                 //toast                    (this, variable o texto, duracion)
