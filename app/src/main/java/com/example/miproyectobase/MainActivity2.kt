@@ -18,6 +18,7 @@ class MainActivity2 : AppCompatActivity() {
         val mensajeBienvenida:TextView = findViewById(R.id.tx_bienvenido)
         val usuariodeOtroActivity = intent.getStringExtra("pUsuario")
         val btnFormulario:Button = findViewById(R.id.btn_formulario)
+        val btnIrACalculadora: Button = findViewById(R.id.btn_irCalculadora)
 
         mensajeBienvenida.text = usuariodeOtroActivity.toString()
 
@@ -26,6 +27,10 @@ class MainActivity2 : AppCompatActivity() {
             startActivity(ventanaFormulario)
         }
 
+        btnIrACalculadora.setOnClickListener{
+            val ventanaCalculadora = Intent(this, MainActivity4::class.java)
+            startActivity(ventanaCalculadora)
+        }
 
 
 
