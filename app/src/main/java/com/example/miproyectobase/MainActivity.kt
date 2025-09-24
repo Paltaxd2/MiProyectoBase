@@ -22,8 +22,9 @@ class MainActivity : AppCompatActivity() {
         val edUsername:EditText = findViewById(R.id.ed_username)
         val edPassword:EditText = findViewById(R.id.ed_password)
         val btnLogin:Button = findViewById(R.id.btn_login)
+        val btnRegiComu:Button = findViewById(R.id.btn_RegionComuna)
 
-        var defaultUsr = "ch.munozs@profesor.duoc.cl"
+        var defaultUsr = "admin"
         var defaultPasswd = "admin123"
 
         // Accion sobre el boton
@@ -39,6 +40,11 @@ class MainActivity : AppCompatActivity() {
                 val toast = Toast.makeText(this, "Usuario o Contraseña Incorrectos", Toast.LENGTH_SHORT)
                 toast.show()
             }
+        }
+
+        btnRegiComu.setOnClickListener{
+            val ventanaRegion = Intent(this, MainActivity5::class.java)
+            startActivity(ventanaRegion)
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

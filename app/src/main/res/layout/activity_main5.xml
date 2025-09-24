@@ -5,57 +5,38 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity5">
 
-    <EditText
-        android:id="@+id/ed_username"
-        android:layout_width="wrap_content"
+    <Spinner
+        android:id="@+id/sp_Region"
+        android:layout_width="409dp"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Ingrese Usuario"
-        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.186" />
+        app:layout_constraintVertical_bias="0.022" />
 
-    <EditText
-        android:id="@+id/ed_password"
-        android:layout_width="wrap_content"
+    <Spinner
+        android:id="@+id/sp_Comuna"
+        android:layout_width="409dp"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Ingrese Contraseña"
-        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.358" />
+        app:layout_constraintVertical_bias="0.12" />
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_confirmar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ingresar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.576" />
-
-    <Button
-        android:id="@+id/btn_RegionComuna"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Region y Comuna"
+        android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.701" />
-
+        app:layout_constraintVertical_bias="0.638" />
 </androidx.constraintlayout.widget.ConstraintLayout>
