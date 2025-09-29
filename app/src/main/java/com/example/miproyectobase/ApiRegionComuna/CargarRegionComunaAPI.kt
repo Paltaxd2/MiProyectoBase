@@ -49,4 +49,47 @@ object CargarRegionComunaAPI {
             }
         }
     }
+
+    fun cargarRegionComuna2(owner: LifecycleOwner, spinner: Spinner, valRegi: String) {
+        owner.lifecycleScope.launch {
+            val res = RegionComunaRepository.fetchRegionComuna()
+
+            res.onSuccess { comuna ->
+                if (comuna.isEmpty()) {
+                    Toast.makeText(
+                        spinner.context,
+                        "Sin datos desde el servicio",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
+
+                val datos = comuna
+                    .distinctBy { it.comuna }
+                    .map { a ->
+                        if (a.region === valRegi){
+                            "COMUNA   : ${a.comuna}\n"
+                        }
+                        //"ID  : ${a.id}\n" +
+                        //"COMUNA   : ${a.comuna}\n" //+
+                        //"REGION : ${a.region}"
+                    }
+
+                spinner.adapter = ArrayAdapter(
+                    spinner.context,
+                    android.R.layout.simple_list_item_1,
+                    datos
+                )
+
+                android.util.Log.d("WS_region_comuna", "items=${comuna.size}")
+            }.onFailure { e ->
+                android.util.Log.e("WS_region_comuna", "falló", e)
+                Toast.makeText(
+                    spinner.context,
+                    "Error al cargar: ${e.message}",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }
+    }
 }

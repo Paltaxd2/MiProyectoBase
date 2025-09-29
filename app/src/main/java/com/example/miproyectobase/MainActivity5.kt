@@ -1,6 +1,7 @@
 package com.example.miproyectobase
 
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import androidx.activity.enableEdgeToEdge
@@ -22,7 +23,16 @@ class MainActivity5 : AppCompatActivity() {
          */
         val btnConfirm:Button = findViewById(R.id.btn_confirmar)
 
+
         CargarRegionComunaAPI.cargarRegionComuna(this, spReg)
+
+        var result = spReg.selectedItem.toString()
+        CargarRegionComunaAPI.cargarRegionComuna2(this, spComu, result)
+
+
+
+
+
 
 
 
