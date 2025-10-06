@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         val edPassword:EditText = findViewById(R.id.ed_password)
         val btnLogin:Button = findViewById(R.id.btn_login)
         val btnRegiComu:Button = findViewById(R.id.btn_RegionComuna)
+        var btnIngresoAlumno : Button = findViewById(R.id.btn_IrIngresoAlumno)
 
         var defaultUsr = "admin"
         var defaultPasswd = "admin123"
@@ -45,6 +46,11 @@ class MainActivity : AppCompatActivity() {
         btnRegiComu.setOnClickListener{
             val ventanaRegion = Intent(this, MainActivity5::class.java)
             startActivity(ventanaRegion)
+        }
+
+        btnIngresoAlumno.setOnClickListener{
+            val ventanaIngrsoAlumno = Intent(this, MainActivity6::class.java)
+            startActivity(ventanaIngrsoAlumno)
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
