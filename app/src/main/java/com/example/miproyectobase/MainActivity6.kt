@@ -28,6 +28,7 @@ class MainActivity6 : AppCompatActivity() {
 
         // Lista para el Spinner de grupos
         val gupos = listOf(
+            "Sin Grupo",
             "1",
             "2",
             "3",
@@ -51,6 +52,7 @@ class MainActivity6 : AppCompatActivity() {
         )
 
         val secciones = listOf(
+            "Sin Seccion",
             "1",
             "2",
             "3",
@@ -92,26 +94,45 @@ class MainActivity6 : AppCompatActivity() {
         spSeccion.adapter = menuSeccion
 
         btnGuardarNose.setOnClickListener{
-            InsertarAlumnosAPI.insertarAlumno(
-                owner = this,
-                context = this,
-                nombre = edTxtName.text.toString(),
-                apellido = edTxtApellido.text.toString(),
-                grupo = spGrupo.selectedItem.toString(),
-                seccion = spSeccion.selectedItem.toString(),
-                archivoBytes = null,
-                onSuccess = {
-                    println("termino insert correcto")
-                    Toast.makeText(this
-                        , "guardado"
-                        , Toast.LENGTH_SHORT)
-                },
-                onError = {
-                    println("termino insert incorrecto")
-                    Toast.makeText(this, "NO guardado", Toast.LENGTH_SHORT)
-                }
-            )
+            // VALIDACION
+            var nombre : String = edTxtName.text.toString().trim()
+            var apellido : String = edTxtApellido.text.toString().trim()
+            var grupo : String = spGrupo.selectedItem.toString()
+            var seccion : String = spSeccion.selectedItem.toString()
+
+            if(nombre.isNullOrEmpty() || apellido.isNullOrEmpty() || grupo === "Sin Grupo" || seccion === "Sin Seccion"){
+                var mensajeError = Toast.makeText(this, "Error al Ingresar Datos , no puedes tener campos vacios", Toast.LENGTH_SHORT)
+                mensajeError.show()
+
+            } else {
+                InsertarAlumnosAPI.insertarAlumno(
+                    owner = this,
+                    context = this,
+                    nombre = edTxtName.text.toString(),
+                    apellido = edTxtApellido.text.toString(),
+                    grupo = spGrupo.selectedItem.toString(),
+                    seccion = spSeccion.selectedItem.toString(),
+                    archivoBytes = null,
+                    onSuccess = {
+                        println("termino insert correcto")
+                        Toast.makeText(this
+                            , "guardado"
+                            , Toast.LENGTH_SHORT)
+                    },
+                    onError = {
+                        println("termino insert incorrecto")
+                        Toast.makeText(this, "NO guardado", Toast.LENGTH_SHORT)
+                    }
+                )
+                edTxtName.text.clear()
+                edTxtApellido.text.clear()
+                spGrupo.setSelection(0)
+                spSeccion.setSelection(0)
+
+            }
         }
+
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

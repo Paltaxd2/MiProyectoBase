@@ -10,6 +10,15 @@ import kotlinx.coroutines.withContext
  */
 object AlumnosRepository {
 
+
+    /*
+    * EL BODY = ES LA ESTRUTURA DE LA API , JSON POR EJEMPLI
+    * REQUEST = LO QUE SE LE SOLICITA AL SERVIDOR
+    * SUSPEND = PERMITE EJECUTAR EL PROCESO SIN PAUSAR EL CODIGO
+    * RESULT = DEUELVE UN POSITIVO O FALSO SEGUN SI SE PUDO REALIZAR LA ACCION O NO
+    * Introduce local variable = VA SI O SI
+    * .service = ES UNA VARIABLE DEFINIDA EN ApiDuocClient
+    * */
     suspend fun fetchAlumnos(): Result<List<Alumno>> = withContext(Dispatchers.IO) {
         try {
             Result.success(ApiDuocClient.service.getAlumnos())

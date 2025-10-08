@@ -19,8 +19,17 @@ data class InsertResponse(
 
 interface ApiDuocService {
     @GET("apiduoc/consulta.php")
+    /*
+    * EL METODO @GET PERMITE TRASFORMARLO EN LISTA DE FORMA DIRECTA
+    * */
     suspend fun getAlumnos(): List<Alumno>
 
     @POST("apiduoc/insert.php")
+    /*
+    * EL BODY = ES LA ESTRUTURA DE LA API , JSON POR EJEMPLI
+    * REQUEST = LO QUE SE LE SOLICITA AL SERVIDOR
+    * EL InsertResponse = ES LA DATA CLASS DEFINIDA ARRIBA Y DA EL
+    * RESULTADO DE SI EL RESULTADO ES CORRECTO O NO
+    * */
     suspend fun insertAlumno(@Body request: AlumnoInsertRequest): InsertResponse
 }

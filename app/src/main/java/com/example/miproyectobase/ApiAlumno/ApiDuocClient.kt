@@ -29,6 +29,5 @@ object ApiDuocClient {
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
             .create(ApiDuocService::class.java)
-
     }
 }

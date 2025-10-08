@@ -20,6 +20,12 @@ object InsertarAlumnosAPI {
      * @param onSuccess callback con el mensaje del backend
      * @param onError callback con el Throwable en caso de error
      */
+    /*
+    * owner = nose
+    * unit = nose
+    * context = El contexto o donde se llama la funcion
+    * Throwable = Lanza el error
+    * */
     fun insertarAlumno(
         owner: LifecycleOwner,
         context: Context,
@@ -32,6 +38,10 @@ object InsertarAlumnosAPI {
         onError: ((Throwable) -> Unit)? = null
     ) {
         // Base64 del archivo (demo si no se entrega)
+
+        /*
+        * encodeToString = genera el texto para la imagen
+        * */
         val archivoBase64 = if (archivoBytes != null) {
             Base64.encodeToString(archivoBytes, Base64.NO_WRAP)
         } else {
@@ -46,6 +56,9 @@ object InsertarAlumnosAPI {
             archivo = archivoBase64
         )
 
+        /*
+        * launch = nose xd
+        * */
         owner.lifecycleScope.launch {
             val res = AlumnosRepository.insertAlumno(request)
             res.onSuccess { r ->
