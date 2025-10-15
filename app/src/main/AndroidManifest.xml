@@ -7,9 +7,13 @@
 
 
     <!-- PERMISOS PARA LA CAMRA -->
+    <!-- PERMISO PARA -->
     <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <!-- PERMISO PARA ACCEDER A LA CAMARA-->
     <uses-permission android:name="android.permission.CAMERA"/>
+    <!-- PERMISO PARA LEER Y VR LOS DATOS DE LA MEMORIA LOCAL-->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <!-- PERMISO PARA GUARDAR DATOS ESCRIBIENDO EL ALMACENAMIENTO LOCAL-->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
